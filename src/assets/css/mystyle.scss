@@ -1,0 +1,51 @@
+// 1. Import the initial variables
+@import "../../../node_modules/bulma/sass/utilities/initial-variables";
+@import "../../../node_modules/bulma/sass/utilities/functions";
+
+// 2. Set your own initial variables
+$blue: #00507F;
+$grey: #B8C4CF;
+$background: $white-ter;
+
+// Add a serif family
+$family-pt: 'PT Sans', sans-serif;
+$family-nunito: 'Nunito', sans-serif;
+$family-roboto: 'Roboto', sans-serif;
+$family-open: 'Open Sans', sans-serif;
+
+// 3. Set the derived variables
+//$primary: $blue;
+//$dark: $grey;
+//$primary-invert: $grey;
+
+// Use the existing orange as the danger color
+//$danger: $orange;
+// Use the new serif family
+$family-primary: $family-roboto;
+
+// 4. Setup your Custom Colors
+$linkedin: #0077b5;
+$linkedin-invert: findColorInvert($linkedin);
+$twitter: #55acee;
+$twitter-invert: findColorInvert($twitter);
+$github: #333;
+$github-invert: findColorInvert($github);
+
+// 5. Add new color variables to the color map.
+@import "../../../node_modules/bulma/sass/utilities/derived-variables";
+$addColors: (
+  "twitter":($twitter, $twitter-invert),
+  "linkedin": ($linkedin, $linkedin-invert),
+  "github": ($github, $github-invert)
+);
+$colors: map-merge($colors, $addColors);
+
+// Set my own shadow
+$box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 2px rgba($black, 0.1);
+$card-shadow:  0 2px 3px rgba($black, 0.1), 0 0 0 2px rgba($black, 0.1);
+$navbar-box-shadow-color: $grey;
+$navbar-box-shadow-size:   0 1px 0 0;
+
+// 6. Import the rest of Bulma
+@import "../../../node_modules/bulma";
+@import "bulma-extensions"

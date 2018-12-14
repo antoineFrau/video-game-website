@@ -1,0 +1,64 @@
+<template>
+  <div>
+    <div class='carousel carousel-animated carousel-animate-fade'>
+        <div class='carousel-container'>
+            <div class='carousel-item has-background is-active'>
+            <img class="is-background" src="https://wikiki.github.io/images/merry-christmas.jpg" alt="" width="640" height="310" />
+            <div class="title">Merry Christmas</div>
+            </div>
+            <div class='carousel-item has-background'>
+            <img class="is-background" src="https://wikiki.github.io/images/singer.jpg" alt="" width="640" height="310" />
+            <div class="title">Original Gift: Offer a song with <a href="https://lasongbox.com" target="_blank">La Song Box</a></div>
+            </div>
+            <div class='carousel-item has-background'>
+            <img class="is-background" src="https://wikiki.github.io/images/sushi.jpg" alt="" width="640" height="310" />
+            <div class="title">Sushi time</div>
+            </div>
+            <div class='carousel-item has-background'>
+            <img class="is-background" src="https://wikiki.github.io/images/life.jpg" alt="" width="640" height="310" />
+            <div class="title">Life</div>
+            </div>
+        </div>
+        <div class="carousel-navigation">
+            <div class="carousel-nav-left">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </div>
+            <div class="carousel-nav-right">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+  </div>
+</template>
+<script>
+    // import Projects from '@/components/content/ProjectsContent'
+    
+    export default {
+      // components: {
+      //     'projects': Projects
+      // },
+      mounted: function () {
+        var datePickers = this.$bulmaCarousel.attach()
+        console.log(datePickers)
+      }
+
+    }
+</script>
+<style type="text/css">
+  .section.is-long {
+      padding-bottom: 14rem
+  }
+
+  @media screen and (min-width: 769px) {
+      .section.is-long {
+          padding-bottom: 16rem
+      }
+  }
+
+  @media screen and (min-width: 1280px) {
+      .section.is-long {
+          padding-bottom: 18rem
+      }
+  }
+
+</style>

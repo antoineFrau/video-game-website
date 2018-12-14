@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "1544828973126",
+      "email": "a@g.co",
+      "password": "a",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1544830007923",
+      "email": "b@g.co",
+      "password": "a",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    }
+  ]
+}
