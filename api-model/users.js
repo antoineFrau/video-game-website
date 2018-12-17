@@ -5,7 +5,7 @@ module.exports =  function(db) {
     api.get('/', (req, res) => {
         const users = db.get('users')
             .value()
-        res.send(users)
+        res.send(jsonSuccessData('All users', users))
     })
     
     // GET /users/:id
@@ -33,7 +33,6 @@ module.exports =  function(db) {
         email = req.body.email
         
         if (!isEmailExist(email)) {
-            console.log(req.body)
             res.status(404).send(jsonError('This email doesn\'t exist !'))
             return
         }
@@ -45,6 +44,7 @@ module.exports =  function(db) {
             .value()
         delete user['password']
         delete user['email']
+        delete user['user_agents']
         res.send(jsonSuccessData('Sucessfuly connected !', user))
     })
 
