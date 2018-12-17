@@ -1,5 +1,5 @@
 <template>
-  <div id="login">
+  <div id="login" v-if="redirectIfAlreadyConnected">
   <div class="login-card">
 
     <div class="card-title">
@@ -61,10 +61,10 @@
 				<a class="btn btn-link level-right" href="/signup">Creer un compte?</a>
 			</div>
 			<div class="columns is-centered">
-				<div class="column is-one-third">
+				<div class="column">
 				<div class="field">
 					<div class="control">
-					<div class="button send-mail is-primary is-outlined is-medium is-fullwidth is-rounded" v-on:click="createAccount">Connexion</div>
+					<div class="button send-mail is-primary is-outlined is-medium is-fullwidth is-rounded" v-on:click="loginAccount">Connexion</div>
 					</div>
 				</div>
 				</div>
@@ -78,6 +78,17 @@
 <script>
 	/* eslint-disable */
   export default {
+	computed:{
+      redirectIfAlreadyConnected () {
+		  console.log("aaa")
+        if(this.$store.getters.doesConnected)
+		  this.$router.push('user-panel')
+		return true
+      }
+    },
+    props: {
+      source: Boolean
+    },
     data: () => ({
 		mailError: false,
 		passwordError: false,
@@ -99,11 +110,9 @@
 		}
 	}),
 	methods: {
-		createAccount: function(){
+		loginAccount: function(){
 			this.mailError = this.emailInput == '' ? true : false
 			this.passwordError = this.passwordInput == '' ? true : false
-			console.log(this.mailError)
-			console.log(this.passwordError)
 			if(!this.mailError && !this.passwordError){
 				this.user.email = this.emailInput
 				this.user.password = this.passwordInput
@@ -112,6 +121,7 @@
 				.post('http://localhost:5000/api/users/login', this.user, this.header)
 				.then(response => {
 					this.successLogin(response.data.data)
+					this.$router.push('user-panel')
 				})
 				.catch(error => {
 					this.sendFail = true
