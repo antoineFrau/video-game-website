@@ -1,6 +1,6 @@
 <template>
     <div>
-        <section class="hero is-info is-fullheight">
+        <section class="hero is-info is-medium">
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <div class="column is-6 is-offset-3">
@@ -8,12 +8,15 @@
                             Livre d'or
                         </h1>
                         <div class="box">
+                            <p class="control is-expanded">
+                                    <input class="input" v-model="messageInput" type="text" placeholder="Message">
+                                </p>
                             <div class="field is-grouped">
                                 <p class="control is-expanded">
-                                    <input class="input" type="text" placeholder="Message">
+                                    <input class="input" v-model="usernameInput" type="text" placeholder="Username">
                                 </p>
                                 <p class="control">
-                                    <a class="button is-info">
+                                    <a class="button is-info" v-on:click="createPost">
                                         Envoyer
                                     </a>
                                 </p>
@@ -23,25 +26,19 @@
                 </div>
             </div>
         </section>
-        <section class="hero is-info is-fullheight">
+        <section class="hero is-medium">
             <div class="hero-body">
-                <div class="tile is-ancestor">
-                    <div class="tile is-4 is-vertical is-parent">
-                        <div class="tile is-child box">
-                        <p class="title has-text-black">One</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-                        </div>
-                        <div class="tile is-child box">
-                        <p class="title has-text-black">Two</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
-                        </div>
-                    </div>
-                    <div class="tile is-parent">
-                        <div class="tile is-child box">
-                        <p class="title has-text-black">Three</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-                        <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
-                        <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
+                <div class="columns  is-multiline">
+                    <div class="column" v-for="item in posts" :key="item.id">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="title  is-small">
+                                "{{ item.text }}"
+                                </p>
+                                <p class="subtitle is-small">
+                                {{ item.username }}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -51,11 +48,50 @@
 </template>
 
 <script>
-  // import Projects from '@/components/content/ProjectsContent'
-  
-  // export default {
-  //   components: {
-  //     'projects': Projects
-  //   }
-  // }
+/* eslint-disable */
+  export default {
+    data: () => ({
+      posts: [],
+      messageInput: '',
+      usernameInput: '',
+      header: {
+			headers: {
+				'Access-Control-Allow-Origin': '*'
+			}
+		}
+    }),
+    methods: {
+        getPosts: function () {
+            this.$axioshttp
+				.get('http://localhost:5000/api/golden-book')
+				.then(response => {
+                    this.posts = response.data.data
+				})
+				.catch(error => {
+					console.log(error)
+				})
+        },
+        createPost(){
+            var username = (this.usernameInput == '' ? 'Anonyme' : this.usernameInput)
+            var post = {
+                username: username,
+                text: this.messageInput,
+                user_agents: window.navigator.userAgent
+            }
+            this.$axioshttp
+				.post('http://localhost:5000/api/golden-book/add-post', post, this.header)
+				.then(response => {
+                    this.usernameInput = this.messageInput = ''
+                    this.posts = []
+                    this.getPosts()
+				})
+				.catch(error => {
+					console.log(error)
+				})
+        }
+    },
+    beforeMount(){
+        this.getPosts()
+    }
+  }
 </script>
