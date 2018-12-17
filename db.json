@@ -1,16 +1,19 @@
 {
-  "users": [
+  "users": [],
+  "admin_user": [
     {
-      "id": "1544828973126",
-      "email": "a@g.co",
-      "password": "a",
-      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
-    },
+      "id": "1541094502587",
+      "username": "admin@g.co",
+      "password": "p@ssword"
+    }
+  ],
+  "posts_book": [
     {
-      "id": "1544830007923",
-      "email": "b@g.co",
-      "password": "a",
+      "id": "1545084522581",
+      "username": "Pas Antoine",
+      "text": "Ce site est incroyable",
       "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
     }
-  ]
+  ],
+  "game_scores": []
 }
