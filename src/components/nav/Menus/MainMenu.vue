@@ -22,7 +22,7 @@
               <p class="control">
                 <a class="bd-tw-button button" href="/login">
                   <span class="icon">
-                    <i class="fas fa-user-plus"></i>
+                    <i class="fas fa-user"></i>
                   </span>
                   <span>Sign in</span>
                 </a>
