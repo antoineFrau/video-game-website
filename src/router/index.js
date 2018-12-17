@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import AppLayout from '@/layouts/AppLayout'
 import CookiesPolicyLayout from '@/layouts/CookiesPolicyLayout'
 import MainContent from '@/components/content/MainContent'
+import AdminAuthentificationContent from '@/components/content/AdminAuthentificationContent'
 import AuthentificationContent from '@/components/content/AuthentificationContent'
 import SignUpContent from '@/components/content/SignUpContent'
 import UserPanelContent from '@/components/content/UserPanelContent'
@@ -28,7 +29,7 @@ export default new Router({
     },
     {
       path: '/admin-panel',
-      component: AuthentificationContent  // AdminLayout
+      component: AdminAuthentificationContent  // AdminLayout
     },
     {
       path: '/games',
@@ -36,7 +37,7 @@ export default new Router({
       children: [
         { path: '/snake', component: MainContent },
         { path: '/plus-moins', component: MainContent },
-        { path: '/pacman', component: MainContent }
+        { path: '/pendu', component: MainContent }
       ]
     },
     {
