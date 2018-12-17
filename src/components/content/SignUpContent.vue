@@ -71,7 +71,7 @@
 				<div class="column is-one-third">
 				<div class="field">
 					<div class="control">
-					<div class="button send-mail is-primary is-outlined is-medium is-fullwidth is-rounded" v-on:click="createAccount">Connexion</div>
+					<div class="button send-mail is-primary is-outlined is-medium is-rounded" v-on:click="createAccount">Connexion</div>
 					</div>
 				</div>
 				</div>
@@ -87,6 +87,7 @@
   export default {
 	computed:{
       redirectIfAlreadyConnected () {
+		  console.log("aaa")
         if(this.$store.getters.doesConnected)
 		  this.$router.push('user-panel')
 		return true
