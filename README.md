@@ -32,3 +32,24 @@ Like having a form, or blog (using router).
 About the `router` folder it's using vue-router and it's basic.
 
 Finaly `store` able me to add cookie to the website.
+
+
+## TODO
+
+Actualy finished: 
+
+    - account management fully working with store cookie id for future request to the API.
+    - post golden book working
+
+Next steps: 
+
+    - add games page
+    - add score board with search engine (autocompletion on name)-> API
+    - add user-panel
+    - add admin-panel
+
+Note: 
+
+Everyone can play but score will not be saved.
+
+If logged, send the score to the api and could be found on the score board page.
