@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="redirectIfAlreadyConnected">
         <section class="hero is-info is-fullheight">
             <div class="hero-body">
                 <div class="container has-text-centered">
@@ -27,11 +27,18 @@
 </template>
 
 <script>
-  // import Projects from '@/components/content/ProjectsContent'
-  
-  // export default {
-  //   components: {
-  //     'projects': Projects
-  //   }
-  // }
+    /* eslint-disable */
+  export default {
+    computed:{
+      redirectIfAlreadyConnected () {
+          console.log("aaa")
+        if(!this.$store.getters.doesConnected)
+		  this.$router.push('login')
+		return true
+      }
+    },
+    props: {
+      source: Boolean
+    }
+  }
 </script>
