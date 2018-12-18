@@ -85,16 +85,12 @@
 <script>
 /* eslint-disable */
   export default {
-	computed:{
+	computed: {
       redirectIfAlreadyConnected () {
-		  console.log("aaa")
         if(this.$store.getters.doesConnected)
 		  this.$router.push('user-panel')
 		return true
       }
-    },
-    props: {
-      source: Boolean
     },
 	data: () => ({
 		mailError: false,

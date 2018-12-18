@@ -86,9 +86,6 @@
 		return true
       }
     },
-    props: {
-      source: Boolean
-    },
     data: () => ({
 		mailError: false,
 		passwordError: false,
