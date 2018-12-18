@@ -42,6 +42,11 @@ module.exports =  function(db) {
                 password: psw
             })
             .value()
+
+        if (isEmpty(user)) {
+            res.status(404).send(jsonError('Wrong password'))
+            return
+        }
         delete user['password']
         delete user['email']
         delete user['user_agents']
@@ -75,7 +80,33 @@ module.exports =  function(db) {
                 password: psw
             })
             .value()
-        res.send(jsonSuccessData('Successfuly created', user.id))
+        delete user['password']
+        delete user['email']
+        res.send(jsonSuccessData('Successfuly created', user))
+    })
+
+    // POST /users/admin-login
+    api.post('/admin-login', (req, res) => {
+        psw = req.body.password
+        email = req.body.email
+
+        if (isEmailAdminExist(email)) {
+            res.status(404).send(jsonError('This email doesn\'t exist !'))
+            return
+        }
+        const admin = db.get('users_admin')
+            .find({
+                email: email,
+                password: psw
+            })
+            .value()
+        if(isEmpty(admin)){
+            res.status(404).send(jsonError('Wrong password'))
+            return
+        }
+        delete admin['password']
+        delete admin['email']
+        res.send(jsonSuccessData('Sucessfuly connected !', admin))
     })
 
     function isEmailExist(email){
@@ -85,6 +116,13 @@ module.exports =  function(db) {
             })
             .value()
         return !isEmpty(user)
+    }
+
+    function isEmailAdminExist(email) {
+        const admin = db.get('users_admin')
+            .value()
+        console.log(admin)
+        return isEmpty(admin)
     }
 
     let isEmpty = (val) => {
