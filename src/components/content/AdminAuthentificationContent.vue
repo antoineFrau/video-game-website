@@ -3,7 +3,7 @@
   <div class="login-card">
 
     <div class="card-title">
-      <h1>Authentification</h1>
+      <h1>Administration Authentification</h1>
     </div>
 
     <div class="content">
@@ -106,10 +106,15 @@
 				this.user.email = this.emailInput
 				this.user.password = this.passwordInput
 				this.sendProgress = true
+				console.log(this.user)
 				this.$axioshttp
-				.post('http://localhost:5000/api/users-admin/login', this.user, this.header)
+				.post('http://localhost:5000/api/users/admin-login', this.user, this.header)
 				.then(response => {
-					this.$router.push('admin-panel')
+					this.$router.push({
+						name: 'admin-panel', 
+						params: { userId: response.data.data.id }
+					})
+					
 				})
 				.catch(error => {
 					this.sendFail = true
