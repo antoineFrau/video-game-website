@@ -16,7 +16,7 @@
           
         </div>
 
-        <div class="navbar-end">
+        <div class="navbar-end" v-if="!showUserMenuLogged">
           <div class="navbar-item">
             <div class="field is-grouped">
               <p class="control">
@@ -38,6 +38,29 @@
             </div>
           </div>
         </div>
+
+        <div class="navbar-end" v-if="showUserMenuLogged">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="bd-tw-button button" href="/user-panel">
+                  <span class="icon">
+                    <i class="fas fa-user"></i>
+                  </span>
+                  <span>Profil</span>
+                </a>
+              </p>
+              <p class="control">
+                <a class="button is-primary" href="/games">
+                  <span class="icon">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                  <span>Games</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -47,6 +70,13 @@
 export default {
   data: () => ({
     showMenu: false
-  })
+  }),
+  computed:{
+    showUserMenuLogged () {
+      if(this.$store.getters.doesConnected)
+        return true
+      return false
+    }
+  }
 }
 </script>
