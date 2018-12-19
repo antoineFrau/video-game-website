@@ -1,10 +1,37 @@
 {
-  "users": [],
-  "admin_user": [
+  "users": [
     {
-      "id": "1541094502587",
-      "username": "admin@g.co",
-      "password": "p@ssword"
+      "id": "1545216727880",
+      "email": "aa@g.co",
+      "password": "aa",
+      "username": "Able_Song",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545220267950",
+      "email": "a",
+      "password": "",
+      "username": "Unaware_Truck",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545220303066",
+      "email": "a@g.co",
+      "password": "",
+      "username": "Salty_Garden",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545236993389",
+      "email": "aaaa@g.co",
+      "password": "aaa",
+      "username": "Female_Stand",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    }
+  ],
+  "users_admin": [
+    {
+      "id": "1541094502587"
     }
   ],
   "posts_book": [
@@ -13,7 +40,70 @@
       "username": "Pas Antoine",
       "text": "Ce site est incroyable",
       "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545237438835",
+      "username": "Antoine",
+      "text": "Antoine est pas très bon",
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
     }
   ],
-  "game_scores": []
+  "game_scores": [
+    {
+      "id": "1545174064224",
+      "username": "Breakable_Store",
+      "snake": 4,
+      "hangman": 15,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545174064224",
+      "username": "Breakable_King",
+      "snake": 8,
+      "hangman": 18,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545174064264",
+      "username": "Bidule_Chou",
+      "snake": 1,
+      "hangman": 48,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545174064244",
+      "username": "Truc_Michel",
+      "snake": 18,
+      "hangman": 5,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545174064245",
+      "username": "Truc2_Michel",
+      "snake": 19,
+      "hangman": 1,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545216459760",
+      "username": "Unlawful_Ideal",
+      "snake": 2,
+      "hangman": -1,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545220091239",
+      "username": "Able_Song",
+      "snake": 2,
+      "hangman": -1,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    },
+    {
+      "id": "1545237169620",
+      "username": "",
+      "snake": 3,
+      "hangman": -1,
+      "user_agents": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36"
+    }
+  ]
 }
