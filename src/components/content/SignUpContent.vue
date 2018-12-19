@@ -3,7 +3,7 @@
   <div class="login-card">
 
     <div class="card-title">
-      <h1>Authentification</h1>
+      <h1>Inscription</h1>
     </div>
 
     <div class="content">
@@ -71,7 +71,7 @@
 				<div class="column is-one-third">
 				<div class="field">
 					<div class="control">
-					<div class="button send-mail is-primary is-outlined is-medium is-rounded" v-on:click="createAccount">Connexion</div>
+					<div class="button send-mail is-primary is-outlined is-medium is-rounded" v-on:click="createAccount">Inscription</div>
 					</div>
 				</div>
 				</div>
@@ -116,7 +116,7 @@
 	methods: {
 		createAccount: function() {
 			this.mailError = this.emailInput == '' ? true : false
-			this.passwordError = this.passwordInput == '' ? true : false
+			this.passwordError = (this.passwordInput1 == '' || this.passwordInput2 == '')  ? true : false
 			if(!this.mailError && !this.passwordError){
 				this.user.email = this.emailInput
 				this.user.password = this.passwordInput1
@@ -125,7 +125,7 @@
 				.post('http://localhost:5000/api/users/signup', this.user, this.header)
 				.then(response => {
 					console.log(response)
-					this.successLogin(response.data.data)
+					this.successLogin(response.data.data.id, response.data.data.username)
 					this.$router.push('user-panel')
 				})
 				.catch(error => {
@@ -149,8 +149,8 @@
 			this.sendSucess = false
 			this.sendFail = false
 		},
-		successLogin: function(id){
-			this.$store.commit('login', id)
+		successLogin: function(id, name){
+			this.$store.commit('login', id, name)
 		}
 	}
 }
