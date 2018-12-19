@@ -2,6 +2,7 @@
 
 > TP5 with Vue.js by Antoine Frau
 
+
 ## Build Setup
 
 ``` bash
@@ -33,6 +34,9 @@ About the `router` folder it's using vue-router and it's basic.
 
 Finaly `store` able me to add cookie to the website.
 
+### server
+
+Explain how server work here.
 
 ## TODO
 
@@ -40,16 +44,20 @@ Actualy finished:
 
     - account management fully working with store cookie id for future request to the API.
     - post golden book working
+    - admin-panel / admin-login -> fully working
+    - menu change if user logged
+    - add games page
+    - create games (HangMan/Snake)
+    - add user-panel
+    - add score board with search engine (autocompletion on name)-> API
 
 Next steps: 
 
-    - add games page
-    - add score board with search engine (autocompletion on name)-> API
-    - add user-panel
-    - add admin-panel
+## Note
+You can play only if you logged.
 
-Note: 
+## Author
+Antoine Frau - Master 1 Développement Full-Stack.
 
-Everyone can play but score will not be saved.
-
-If logged, send the score to the api and could be found on the score board page.
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
