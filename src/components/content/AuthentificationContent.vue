@@ -117,7 +117,7 @@
 				this.$axioshttp
 				.post('http://localhost:5000/api/users/login', this.user, this.header)
 				.then(response => {
-					this.successLogin(response.data.data)
+					this.successLogin(response.data.data.id, response.data.data.username)
 					this.$router.push('user-panel')
 				})
 				.catch(error => {
@@ -140,8 +140,8 @@
 			this.sendSucess = false
 			this.sendFail = false
 		},
-		successLogin: function(id){
-			this.$store.commit('login', id)
+		successLogin: function(id, username){
+			this.$store.commit('login', {id: id, name: username})
 		}
 	}
 }
