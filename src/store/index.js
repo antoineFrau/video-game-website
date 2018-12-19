@@ -8,11 +8,12 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     connected: false,
-    userid: ''
+    userid: '',
+    username: ''
   },
   plugins: [
     createPersistedState({
-      paths: ['connected', 'userid'],
+      paths: ['connected', 'userid', 'username'],
       getState: (key) => Cookies.getJSON(key),
       setState: (key, state) => Cookies.set(key, state, {expires: 365})
     })
@@ -21,10 +22,12 @@ export const store = new Vuex.Store({
     logout (state) {
       state.connected = false
       state.userid = ''
+      state.username = ''
     },
-    login (state, id) {
+    login (state, user) {
       state.connected = true
-      state.userid = id
+      state.userid = user.id
+      state.username = user.name
     }
   },
   getters: {
@@ -33,6 +36,9 @@ export const store = new Vuex.Store({
     },
     getUserId (state) {
       return state.userid
+    },
+    getUserName (state) {
+      return state.username
     }
   }
 })

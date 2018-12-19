@@ -1,14 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import AppLayout from '@/layouts/AppLayout'
+import UserLayout from '@/layouts/UserLayout'
 import CookiesPolicyLayout from '@/layouts/CookiesPolicyLayout'
 import MainContent from '@/components/content/MainContent'
 import AdminAuthentificationContent from '@/components/content/AdminAuthentificationContent'
 import AuthentificationContent from '@/components/content/AuthentificationContent'
 import SignUpContent from '@/components/content/SignUpContent'
-import UserPanelContent from '@/components/content/UserPanelContent'
+import SnakeGameContent from '@/components/content/SnakeGameContent'
+import PenduGameContent from '@/components/content/PenduGameContent'
+import AdminPanelContent from '@/components/content/AdminPanelContent'
 import ScoreBoardContent from '@/components/content/ScoreBoardContent'
 import GoldenBookContent from '@/components/content/GoldenBookContent'
+import DashboardUserContent from '@/components/content/DashboardUserContent'
 
 Vue.use(Router)
 
@@ -25,20 +29,23 @@ export default new Router({
     },
     {
       path: '/user-panel',
-      component: UserPanelContent // UserLayout
+      component: UserLayout, // UserLayout
+      children: [
+        { path: '', component: DashboardUserContent },
+        { path: '/user-panel/games-snake', component: SnakeGameContent },
+        { path: '/user-panel/games-pendu', component: PenduGameContent }
+      ]
     },
     {
-      path: '/admin-panel',
+      path: '/admin-login',
+      name: 'admin-login',
       component: AdminAuthentificationContent  // AdminLayout
     },
     {
-      path: '/games',
-      component: AppLayout, // GameLayout
-      children: [
-        { path: '/snake', component: MainContent },
-        { path: '/plus-moins', component: MainContent },
-        { path: '/pendu', component: MainContent }
-      ]
+      path: '/admin-panel',
+      name: 'admin-panel',
+      component: AdminPanelContent, // AdminLayout
+      props: true
     },
     {
       path: '/',
